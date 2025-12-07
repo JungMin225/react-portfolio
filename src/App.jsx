@@ -1,41 +1,50 @@
-import { useState, useEffect } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-import './App.css'
-import { Routes, Route, Link } from 'react-router-dom'; // 라우터 관련 컴포넌트 임포트
-import Page1 from './Page1.jsx';
-import Page2 from './Page2.jsx';
-import Page3 from './Page3.jsx';
+import React from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import SkillsSection from "./components/SkillsSection";
+import ProjectSection from "./components/ProjectSection";
+import BrightSection from "./components/BrightSection";
+import AboutSection from "./components/AboutSection";
 
 function App() {
-  const [dDay, setDDay] = useState(0);
+  const handleNavClick = (sectionId) => {
+    const el = document.getElementById(sectionId);
+    if (!el) return;
 
-  useEffect(() => {
-    // 목표 날짜를 설정하세요 (예: 2026년 2월 20일)
-    const targetDate = new Date("2026-02-03");
-    const today = new Date();
+    const headerOffset = 90;
+    const rect = el.getBoundingClientRect();
+    const offsetTop = window.scrollY + rect.top - headerOffset;
 
-    const differenceInTime = targetDate.getTime() - today.getTime();
-    const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
-
-    setDDay(differenceInDays);
-  }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <>
-    <h2>졸업까지... D-{dDay}</h2>
-      <nav>
-        <Link to="/page1">이력</Link> | {" "}
-        <Link to="/page2">포트폴리오</Link> | {" "}
-        <Link to="/page3">자기소개</Link>
-      </nav>
-      <Routes>
-        <Route path="/page1" element={<Page1 />} />
-        <Route path="/page2" element={<Page2 />} />
-        <Route path="/page3" element={<Page3 />} />
-      </Routes>
-    </>
-  )
+    <div className="site-root">
+      <Header onNavClick={handleNavClick} />
+
+      <main className="site-main">
+        {/* Hero */}
+        <section id="home" className="section hero-section">
+          <Hero />
+        </section>
+
+        {/* 소개 */}
+        <BrightSection />
+
+        {/* Skills */}
+        <SkillsSection />
+
+        {/* Projects */}
+        <ProjectSection />
+
+        {/* About */}
+        <AboutSection />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
