@@ -1,25 +1,23 @@
-import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import SkillsSection from "./components/SkillsSection";
-import ProjectSection from "./components/ProjectSection";
-import BrightSection from "./components/BrightSection";
-import AboutSection from "./components/AboutSection";
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import SkillsSection from './components/SkillsSection';
+import ProjectSection from './components/ProjectSection';
+import BrightSection from './components/BrightSection';
+import AboutSection from './components/AboutSection';
+import Footer from './components/Footer';
 
 function App() {
   const handleNavClick = (sectionId) => {
     const el = document.getElementById(sectionId);
     if (!el) return;
-
-    const headerOffset = 90;
-    const rect = el.getBoundingClientRect();
-    const offsetTop = window.scrollY + rect.top - headerOffset;
-
-    window.scrollTo({
-      top: offsetTop,
+  
+    el.scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
   };
+  
 
   return (
     <div className="site-root">
@@ -43,6 +41,8 @@ function App() {
         {/* About */}
         <AboutSection />
       </main>
+
+      <Footer />
     </div>
   );
 }

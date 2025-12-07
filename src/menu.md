@@ -1,15 +1,15 @@
-# 정민의 포트폴리오 사이트
-## 소개
-### 사진
-### 이름
-### 학력
-### 경력
-### 스킬
-### 수상이력
-## 포트폴리오
-### 디자인
-### 영상
+# SOUTH DIRECTION
+## SKILL
 ### 프로그래밍
-## 연결
-### 인스타그램
-### 이메일
+### 디자인
+### 기획
+## PROJECT
+### Qpid
+### 오늘의 온도
+### NewJeans
+## ABOUT
+### Profile
+### Education
+### Contact
+### Awards
+### Experience

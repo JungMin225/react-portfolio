@@ -1,29 +1,56 @@
 // src/components/BrightSection.jsx
-import React from "react";
+import React, { useMemo, useRef } from "react";
 
 import ShapeLeft from "../assets/images/bright-left.png";
 import ShapeRight from "../assets/images/bright-right.png";
 import ShapeBottom from "../assets/images/bright-bottom.png";
 
-// ✅ 추가
 import Reveal from "./motion/Reveal";
 import RevealGroup from "./motion/RevealGroup";
+import TiltItem from "./motion/TiltItem";
+import useSectionTilt from "./motion/useSectionTilt";
 
 function BrightSection() {
+  const sectionRef = useRef(null);
+
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const bottomRef = useRef(null);
+
+  // 각 이미지별 틸트 강도 설정
+  const tiltItems = useMemo(
+    () => [
+      { ref: leftRef, maxTilt: 30, lift: 30, scale: 1.02 },
+      { ref: rightRef, maxTilt: 20, lift: 40, scale: 1.03 },
+      { ref: bottomRef, maxTilt: 17, lift: 60, scale: 1.02 },
+    ],
+    []
+  );
+
+  useSectionTilt(sectionRef, tiltItems);
+
   return (
-    <section className="section section-bright" aria-labelledby="bright-title">
-      {/* 배경 도형 (패럴랙스 X, 그냥 포지션만) */}
-      <img
+    <section
+      ref={sectionRef}
+      className="section section-bright"
+      aria-labelledby="bright-title"
+    >
+      <TiltItem
+        ref={leftRef}
         src={ShapeLeft}
         alt=""
         className="bright-shape bright-shape--left"
       />
-      <img
+
+      <TiltItem
+        ref={rightRef}
         src={ShapeRight}
         alt=""
         className="bright-shape bright-shape--right"
       />
-      <img
+
+      <TiltItem
+        ref={bottomRef}
         src={ShapeBottom}
         alt=""
         className="bright-shape bright-shape--bottom"
@@ -31,13 +58,11 @@ function BrightSection() {
 
       <div className="bright-inner">
         <div className="bright-text">
-          {/* ✅ 1) 타이틀 먼저 */}
           <Reveal as="h2" id="bright-title" className="bright-title-main">
             사용자 경험 개선의 밝은 시야
           </Reveal>
 
-          {/* ✅ 2) 문장들 순차 등장 */}
-          <RevealGroup className="" stagger={0.14} baseDelay={0.18}>
+          <RevealGroup stagger={0.14} baseDelay={0.18}>
             <Reveal as="p" className="bright-subtitle">
               남향이 계절에 관계없이 꾸준히 빛을 제공하듯, <br />
               저는 사용자의 입장에서 항상 긍정적이고 밝은 시각으로
