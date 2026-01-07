@@ -66,11 +66,11 @@ function AboutSection() {
                 <div className="about-rows">
                   <Reveal as="div" className="about-row">
                     <span className="about-left">Phone.</span>
-                    <span className="about-right">82+ 10 0000 0000</span>
+                    <span className="about-right">82+ 10 9430 8720</span>
                   </Reveal>
                   <Reveal as="div" className="about-row">
                     <span className="about-left">EMail.</span>
-                    <span className="about-right">000@naver.com</span>
+                    <span className="about-right">illxoyxx@naver.com</span>
                   </Reveal>
                   <Reveal as="div" className="about-row">
                     <span className="about-left">GitHub</span>
@@ -81,7 +81,7 @@ function AboutSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        https://github.com/
+                        https://github.com/JungMin225
                       </a>
                     </span>
                   </Reveal>

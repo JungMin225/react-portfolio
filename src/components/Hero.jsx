@@ -85,7 +85,7 @@ function Hero() {
         <div className="hero-contact">
           <div className="contact-row">
             <span className="label">Phone</span>
-            <span className="value">82+ 10 0000 0000</span>
+            <span className="value">82+ 10 9430 8720</span>
           </div>
           <div className="contact-row">
             <span className="label">EMail</span>
@@ -93,7 +93,7 @@ function Hero() {
           </div>
           <div className="contact-row">
             <span className="label">GitHub</span>
-            <span className="value">https://github.com/</span>
+            <span className="value">https://github.com/JungMin225</span>
           </div>
         </div>
       </div>
